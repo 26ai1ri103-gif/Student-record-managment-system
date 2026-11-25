@@ -1,0 +1,58 @@
+
+{% extends "base.html" %}
+
+{% block content %}
+
+<center>
+
+    <h2>WELCOME TO MITS</h2>
+
+    <h3>Select Your Interface</h3>
+
+    <br>
+
+    <table border="1" cellpadding="25">
+
+        <tr>
+
+            <td align="center">
+
+                <h2>ADMIN</h2>
+
+                <p>Administrative Portal</p>
+
+                <p>Manage Student Records</p>
+
+                <br>
+
+                <a href="{{ url_for('admin_login') }}">
+                    <button type="button">ADMIN LOGIN</button>
+                </a>
+
+            </td>
+
+            <td align="center">
+
+                <h2>STUDENT</h2>
+
+                <p>Student Academic Portal</p>
+
+                <p>View Your Academic Details</p>
+
+                <br>
+
+                <a href="{{ url_for('student_login') }}">
+                    <button type="button">STUDENT LOGIN</button>
+                </a>
+
+            </td>
+
+        </tr>
+
+    </table>
+
+    <br><br>
+
+</center>
+
+{% endblock %}

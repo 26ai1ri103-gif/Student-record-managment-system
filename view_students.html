@@ -1,0 +1,101 @@
+
+{% extends "base.html" %}
+
+{% block content %}
+
+<center>
+
+    <h2>STUDENT RECORDS</h2>
+
+    <h3>Total Students: {{ total }}</h3>
+
+    <hr>
+
+    {% if grouped_students %}
+
+        {% for branch, years in grouped_students.items() %}
+
+            <h2>BRANCH: {{ branch }}</h2>
+
+            {% for year, semesters in years.items() %}
+
+                <h3>ACADEMIC YEAR: {{ year }}</h3>
+
+                {% for semester, records in semesters.items() %}
+
+                    <h3>SEMESTER: {{ semester }}</h3>
+
+                    <table border="1" cellpadding="8">
+
+                        <tr>
+                            <th>Student ID</th>
+                            <th>Name</th>
+                            <th>Programme</th>
+                            <th>Batch</th>
+                            <th>Email</th>
+                            <th>Phone</th>
+                            <th>Action</th>
+                        </tr>
+
+                        {% for s in records %}
+
+                            <tr>
+
+                                <td>{{ s.student_id }}</td>
+
+                                <td>{{ s.name }}</td>
+
+                                <td>{{ s.programme }}</td>
+
+                                <td>{{ s.batch }}</td>
+
+                                <td>{{ s.email }}</td>
+
+                                <td>{{ s.phone }}</td>
+
+                                <td>
+
+                                    <form
+                                        method="POST"
+                                        action="{{ url_for('delete_student', student_id=s.student_id) }}"
+                                    >
+
+                                        <button type="submit">
+                                            Delete
+                                        </button>
+
+                                    </form>
+
+                                </td>
+
+                            </tr>
+
+                        {% endfor %}
+
+                    </table>
+
+                    <br>
+
+                {% endfor %}
+
+            {% endfor %}
+
+            <hr>
+
+        {% endfor %}
+
+    {% else %}
+
+        <h3>No Student Records Available</h3>
+
+    {% endif %}
+
+    <br>
+
+    <a href="{{ url_for('admin_dashboard') }}">
+        Back to Admin Dashboard
+    </a>
+
+</center>
+
+{% endblock %}

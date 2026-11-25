@@ -1,0 +1,129 @@
+
+{% extends "base.html" %}
+
+{% block content %}
+
+<center>
+
+    <h2>ADD NEW STUDENT</h2>
+
+    {% if error %}
+        <p>{{ error }}</p>
+    {% endif %}
+
+    <form method="POST">
+
+        <table cellpadding="8">
+
+            <tr>
+                <td>Student Name:</td>
+                <td>
+                    <input type="text" name="name" required>
+                </td>
+            </tr>
+
+            <tr>
+                <td>Student ID:</td>
+                <td>
+                    <input type="text" name="student_id" required>
+                </td>
+            </tr>
+
+            <tr>
+                <td>Branch:</td>
+                <td>
+                    <select name="branch" required>
+                        <option value="">Select Branch</option>
+                        <option value="">Artificial Intelligence</option>
+                        <option value="CSE">Computer Science Engineering</option>
+                        <option value="IT">Information Technology</option>
+                        <option value="ECE">Electronics Engineering</option>
+                        <option value="ME">Mechanical Engineering</option>
+                        <option value="CE">Civil Engineering</option>
+                        <option value="EE">Electrical Engineering</option>
+                    </select>
+                </td>
+            </tr>
+
+            <tr>
+                <td>Programme:</td>
+                <td>
+                    <select name="programme" required>
+                        <option value="">Select Programme</option>
+                        <option value="B.Tech">B.Tech</option>
+                        <option value="M.Tech">M.Tech</option>
+                        <option value="MCA">MCA</option>
+                        <option value="MBA">MBA</option>
+                        <option value="PhD">Ph.D.</option>
+                    </select>
+                </td>
+            </tr>
+
+            <tr>
+                <td>Semester:</td>
+                <td>
+                    <select name="semester" required>
+                        <option value="">Select Semester</option>
+                        <option value="1">1st Semester</option>
+                        <option value="2">2nd Semester</option>
+                        <option value="3">3rd Semester</option>
+                        <option value="4">4th Semester</option>
+                        <option value="5">5th Semester</option>
+                        <option value="6">6th Semester</option>
+                        <option value="7">7th Semester</option>
+                        <option value="8">8th Semester</option>
+                    </select>
+                </td>
+
+            <tr>
+                <td>Batch:</td>
+                <td>
+                    <input
+                        type="text"
+                        name="batch"
+                        placeholder="Example: 2024-2028"
+                        required
+                    >
+                </td>
+            </tr>
+
+            <tr>
+                <td>Email:</td>
+                <td>
+                    <input type="email" name="email" required>
+                </td>
+            </tr>
+
+            <tr>
+                <td>Phone Number:</td>
+                <td>
+                    <input type="tel" name="phone" required>
+                </td>
+            </tr>
+
+            <tr>
+                <td>Student Password:</td>
+                <td>
+                    <input type="password" name="password" required>
+                </td>
+            </tr>
+
+        </table>
+
+        <br>
+
+        <button type="submit">SAVE STUDENT RECORD</button>
+        
+    </br>
+
+    </form>
+
+</center>
+
+    <a href="{{ url_for('admin_dashboard') }}">
+        Back to Dashboard
+    </a>
+
+</center>
+
+{% endblock %}

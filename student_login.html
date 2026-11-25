@@ -1,0 +1,48 @@
+
+{% extends "base.html" %}
+
+{% block content %}
+
+<center>
+
+    <h2>STUDENT LOGIN</h2>
+
+    <p>Access Your Academic Records</p>
+
+    {% if error %}
+        <p>{{ error }}</p>
+    {% endif %}
+
+    <form method="POST">
+
+        <p>Student ID</p>
+
+        <input
+            type="text"
+            name="student_id"
+            placeholder="Enter Your Student ID"
+            required
+        >
+
+        <p>Password</p>
+
+        <input
+            type="password"
+            name="password"
+            placeholder="Enter Your Password"
+            required
+        >
+
+        <br><br>
+
+        <button type="submit">LOGIN</button>
+
+    </form>
+
+    <br>
+
+    <a href="{{ url_for('home') }}">Back to Home</a>
+
+</center>
+
+{% endblock %}

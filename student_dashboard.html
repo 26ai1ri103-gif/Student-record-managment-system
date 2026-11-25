@@ -1,0 +1,71 @@
+
+{% extends "base.html" %}
+
+{% block content %}
+
+<center>
+
+    <h2>STUDENT ACADEMIC DASHBOARD</h2>
+
+    <h3>Welcome, {{ student.name }}</h3>
+
+    <hr>
+
+    <h3>MY ACADEMIC INFORMATION</h3>
+
+    <table border="1" cellpadding="12">
+
+        <tr>
+            <th>Student Name</th>
+            <td>{{ student.name }}</td>
+        </tr>
+
+        <tr>
+            <th>Student ID</th>
+            <td>{{ student.student_id }}</td>
+        </tr>
+
+        <tr>
+            <th>Branch</th>
+            <td>{{ student.branch }}</td>
+        </tr>
+
+        <tr>
+            <th>Programme</th>
+            <td>{{ student.programme }}</td>
+        </tr>
+
+        <tr>
+            <th>Semester</th>
+            <td>{{ student.semester }}</td>
+        </tr>
+
+        <tr>
+            <th>Academic Year</th>
+            <td>{{ student.year }}</td>
+        </tr>
+
+        <tr>
+            <th>Batch</th>
+            <td>{{ student.batch }}</td>
+        </tr>
+
+        <tr>
+            <th>Email Address</th>
+            <td>{{ student.email }}</td>
+        </tr>
+
+        <tr>
+            <th>Phone Number</th>
+            <td>{{ student.phone }}</td>
+        </tr>
+
+    </table>
+
+    <br>
+
+    <a href="{{ url_for('logout') }}">LOGOUT</a>
+
+</center>
+
+{% endblock %}

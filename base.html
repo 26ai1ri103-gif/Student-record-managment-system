@@ -1,0 +1,52 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>MITS - Student Record Management System</title>
+</head>
+
+<body>
+
+    <center>
+
+        <h1>MADHAV INSTITUTE OF TECHNOLOGY AND SCIENCE</h1>
+
+        <h3>GWALIOR, MADHYA PRADESH</h3>
+
+        <hr>
+
+        <h2>STUDENT RECORD MANAGEMENT SYSTEM</h2>
+
+        <hr>
+
+        {% if session.get("role") %}
+
+            {% if session.get("role") == "admin" %}
+
+                <a href="{{ url_for('admin_dashboard') }}">
+                    Admin Dashboard
+                </a>
+
+            {% else %}
+
+                <a href="{{ url_for('student_dashboard') }}">
+                    Student Dashboard
+                </a>
+
+            {% endif %}
+
+            |
+
+            <a href="{{ url_for('logout') }}">Logout</a>
+
+            <hr>
+
+        {% endif %}
+
+    </center>
+
+    {% block content %}
+    {% endblock %}
+
+</body>
+</html>

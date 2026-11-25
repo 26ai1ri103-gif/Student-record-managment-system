@@ -1,0 +1,48 @@
+
+{% extends "base.html" %}
+
+{% block content %}
+
+<center>
+
+    <h2>ADMIN LOGIN</h2>
+
+    <p>Authorized Administration Only</p>
+
+    {% if error %}
+        <p>{{ error }}</p>
+    {% endif %}
+
+    <form method="POST">
+
+        <p>Admin ID</p>
+
+        <input
+            type="text"
+            name="admin_id"
+            placeholder="Enter Admin ID"
+            required
+        >
+
+        <p>Password</p>
+
+        <input
+            type="password"
+            name="password"
+            placeholder="Enter Password"
+            required
+        >
+
+        <br><br>
+
+        <button type="submit">LOGIN</button>
+
+    </form>
+
+    <br>
+
+    <a href="{{ url_for('home') }}">Back to Home</a>
+
+</center>
+
+{% endblock %}
